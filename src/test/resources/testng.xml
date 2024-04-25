@@ -8,6 +8,5 @@
         <classes>
             <class name="test.PostmanTest" />
         </classes>
-
     </test>
 </suite>
