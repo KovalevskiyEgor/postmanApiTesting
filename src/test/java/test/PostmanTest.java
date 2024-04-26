@@ -33,7 +33,7 @@ public class PostmanTest {
         String createdCollectionId = createCollectionSuccessfulResponse1.getId();
 
         Specifications.installSpecification(Specifications.requestSpec(URL),Specifications.responseSpecError400());
-        CreateCollectionBadResponse collectionBadResponse = requests.createCollectionBadResponse(new Collection(), propertyReader.getProperty("endpoint"));
+        requests.createCollectionBadResponse(new Collection(), propertyReader.getProperty("endpoint"));
 
         Specifications.installSpecification(Specifications.requestSpec(URL),Specifications.responseSpecOK200());
         GetCollectionSuccessResponse collectionById = requests.getCollection(propertyReader.getProperty("endpoint")+"/", createdCollectionId);
@@ -49,7 +49,7 @@ public class PostmanTest {
         ArrayList<Item> items2 = new ArrayList<>();
         items1.add(item2);
         Collection collection2 = new Collection(info2, items2);
-        SuccessfulResponse createCollectionSuccessfulResponse2 = requests.createCollection(collection2,propertyReader.getProperty("endpoint"));
+        requests.createCollection(collection2,propertyReader.getProperty("endpoint"));
 
         Request request3 = new Request();
         Item item3 = Item.builder().request(request3).build();
@@ -57,7 +57,7 @@ public class PostmanTest {
         ArrayList<Item> items3 = new ArrayList<>();
         items1.add(item3);
         Collection collection3 = new Collection(info3, items3);
-        SuccessfulResponse createCollectionSuccessfulResponse3 = requests.createCollection(collection3,propertyReader.getProperty("endpoint"));
+        requests.createCollection(collection3,propertyReader.getProperty("endpoint"));
 
         List<Collection> allCollections = requests.getList(propertyReader.getProperty("endpoint"));
 
